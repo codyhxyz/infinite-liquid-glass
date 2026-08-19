@@ -115,6 +115,7 @@ npm run hero                # regenerate docs/hero.jpg
 
 ## Media
 
+- Tile copy is placeholder content written for this repo. Swap it in `src/overlay.js`.
 - Default content is local mp4s and photos, so the demo is self-contained.
 - HLS is supported: put an `.m3u8` URL in `public/media/manifest.json` and it plays via hls.js, or natively where the browser supports it. `?forcehls` forces the MSE path.
 - `public/media/` is gitignored. Run `npm run media` to populate it.
