@@ -3,6 +3,9 @@ dist
 .vercel
 .DS_Store
 
+# Harness output
+ilg-*.png
+
 # Fetched third-party demo assets. `npm run media` repopulates; the app falls
 # back to procedural textures without them.
 public/media

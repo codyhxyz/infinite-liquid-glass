@@ -1,6 +1,10 @@
 # Infinite Liquid Glass
 
+![Infinite Liquid Glass](docs/hero.jpg)
+
 An infinite, draggable, brick-staggered grid of rounded-rectangle glass tiles wrapped onto a very large sphere, each tile a thick refractive lens over its own video or photo. WebGPU via three.js TSL.
+
+Live demo: [infiniteglass.codyh.xyz](https://infiniteglass.codyh.xyz)
 
 Inspired by: [infinite-liquid-glass.shader.se](https://infinite-liquid-glass.shader.se/?v=2)
 
@@ -98,12 +102,15 @@ Harnesses launch a throwaway Chrome, drive it over CDP, and always kill it on ex
 
 ```bash
 npm run verify              # render + console/exception capture + screenshot
-npm run verify:drag         # pointer drag; asserts the grid scrolls and wraps
+npm run verify:drag         # pointer drag; asserts the grid scrolls, wraps, and dollies
 npm run verify:tilt         # asserts per-tile tilt, one tile at a time, no camera orbit
 npm run probe '<js expr>'   # evaluate an expression in the live page
+npm run hero                # regenerate docs/hero.jpg
 ```
 
-- `verify:tilt` runs headless on purpose — a real window lets the physical cursor race the synthetic one.
+- Shared CDP plumbing lives in `scripts/lib/cdp.mjs`.
+- Headless by default — a visible window lets the physical cursor race the synthetic one. `HEADFUL=1` to watch.
+- Chrome is found automatically on macOS and Linux; `CHROME_PATH` overrides. `ILG_URL` points the harnesses at a different origin.
 - `window.__ilg` exposes `{controls, camera, materials, items, layout, meshes, tilts, hovered}`.
 
 ## Media

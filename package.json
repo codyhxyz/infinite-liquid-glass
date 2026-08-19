@@ -17,7 +17,11 @@
     "verify": "node scripts/verify.mjs",
     "verify:drag": "node scripts/verify-drag.mjs",
     "verify:tilt": "node scripts/verify-tilt.mjs",
-    "probe": "node scripts/probe.mjs"
+    "probe": "node scripts/probe.mjs",
+    "hero": "node scripts/hero.mjs"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "dependencies": {
     "hls.js": "^1.7.1",
