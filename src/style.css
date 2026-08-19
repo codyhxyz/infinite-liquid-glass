@@ -1,0 +1,165 @@
+:root {
+  --ink: #ffffff;
+  --dim: rgba(255, 255, 255, 0.62);
+  --font: ui-sans-serif, -apple-system, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: var(--ink);
+  font-family: var(--font);
+  overscroll-behavior: none;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+#scene.grabbing { cursor: grabbing; }
+
+/* --- DOM overlay, matrix3d-synced to the WebGPU camera --- */
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Full-size: its transform-origin must be the viewport centre. */
+.overlay-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  container-type: inline-size;   /* cq units resolve on descendants, not here */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  visibility: hidden;
+}
+
+.card-inner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 7cqw;
+  color: #fff;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 1.7cqw;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.card-slug { display: flex; align-items: center; gap: 2.8cqw; }
+.card-type { opacity: 0.75; }
+
+.card-meta { display: flex; align-items: center; gap: 1.2cqw; opacity: 0.65; }
+.card-dot {
+  width: 0.4cqw;
+  height: 0.4cqw;
+  border-radius: 9999px;
+  background: currentColor;
+}
+
+.card-rule {
+  height: 0.2cqw;
+  margin-bottom: 3.3cqw;
+  transform-origin: left;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.card-title {
+  margin: 0;
+  max-width: 92%;
+  font-size: 12cqw;
+  line-height: 0.82;
+  font-weight: 600;
+  letter-spacing: -0.085em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.card-descrow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4cqw;
+  margin-top: 3.5cqw;
+}
+
+.card-desc {
+  margin: 0;
+  max-width: 58cqw;
+  font-size: 2.5cqw;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- chrome --- */
+
+#hud, #legend {
+  position: fixed;
+  z-index: 10;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+#hud { top: 14px; left: 16px; }
+#legend { bottom: 14px; left: 16px; }
+
+#loading {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  background: #05070f;
+  z-index: 20;
+}
+
+@media (max-width: 640px) {
+  #legend { font-size: 9px; }
+}

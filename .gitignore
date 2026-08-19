@@ -1,0 +1,8 @@
+node_modules
+dist
+.vercel
+.DS_Store
+
+# Fetched third-party demo assets. `npm run media` repopulates; the app falls
+# back to procedural textures without them.
+public/media

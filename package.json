@@ -1,0 +1,20 @@
+{
+  "name": "infinite-liquid-glass",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "media": "node scripts/fetch-media.mjs",
+    "verify": "node scripts/verify.mjs",
+    "verify:drag": "node scripts/verify-drag.mjs",
+    "verify:tilt": "node scripts/verify-tilt.mjs",
+    "probe": "node scripts/probe.mjs"
+  },
+  "dependencies": {
+    "hls.js": "^1.7.1",
+    "three": "^0.185.1",
+    "vite": "^8.2.1"
+  }
+}
