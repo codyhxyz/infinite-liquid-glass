@@ -2,6 +2,12 @@
   "name": "infinite-liquid-glass",
   "private": true,
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://infiniteglass.codyh.xyz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codyhxyz/infinite-liquid-glass.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
