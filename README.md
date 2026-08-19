@@ -111,6 +111,7 @@ npm run probe '<js expr>'   # evaluate an expression in the live page
 - Default content is local mp4s and photos, so the demo is self-contained.
 - HLS is supported: put an `.m3u8` URL in `public/media/manifest.json` and it plays via hls.js, or natively where the browser supports it. `?forcehls` forces the MSE path.
 - `public/media/` is gitignored. Run `npm run media` to populate it.
+- Deploys fetch it at build time via the `vercel-build` script. Every download is optional and cached, so a failed fetch degrades to procedural textures rather than failing the build.
 
 ## Credits
 
