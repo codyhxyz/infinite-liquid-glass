@@ -106,6 +106,7 @@ npm run verify:drag         # pointer drag; asserts the grid scrolls, wraps, and
 npm run verify:tilt         # asserts per-tile tilt, one tile at a time, no camera orbit
 npm run probe '<js expr>'   # evaluate an expression in the live page
 npm run hero                # regenerate docs/hero.jpg
+npm run og                  # regenerate public/og.png (1200x630 link preview)
 ```
 
 - Shared CDP plumbing lives in `scripts/lib/cdp.mjs`.

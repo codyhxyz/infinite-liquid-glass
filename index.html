@@ -6,10 +6,32 @@
   <meta name="color-scheme" content="dark" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <title>Infinite Liquid Glass</title>
+  <meta name="description" content="An infinite, draggable grid of refractive glass tiles wrapped onto a sphere, each a thick lens over its own video or photo. WebGPU via three.js TSL." />
+  <link rel="canonical" href="https://infiniteglass.codyh.xyz/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://infiniteglass.codyh.xyz/" />
+  <meta property="og:title" content="Infinite Liquid Glass" />
+  <meta property="og:description" content="An infinite, draggable grid of refractive glass tiles wrapped onto a sphere, each a thick lens over its own video or photo. WebGPU via three.js TSL." />
+  <meta property="og:image" content="https://infiniteglass.codyh.xyz/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Rounded glass tiles refracting photos and video clips across a curved, infinite grid" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Infinite Liquid Glass" />
+  <meta name="twitter:description" content="An infinite, draggable grid of refractive glass tiles wrapped onto a sphere. WebGPU via three.js TSL." />
+  <meta name="twitter:image" content="https://infiniteglass.codyh.xyz/og.png" />
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
-  <canvas id="scene"></canvas>
+  <!-- Canvas fallback content: the description of what the canvas draws, for
+       screen readers and crawlers. Browsers that render the canvas never show it. -->
+  <canvas id="scene">
+    <h1>Infinite Liquid Glass</h1>
+    <p>An infinite, draggable, brick-staggered grid of rounded-rectangle glass tiles wrapped onto a very large sphere. Each tile is a thick refractive lens over its own video or photo, rendered with WebGPU through three.js TSL.</p>
+    <p>Drag to scroll: the grid wraps modularly, so scrolling never runs out. Fling it and the camera dollies back in proportion to drag speed, then settles as the grid comes to rest. Hover a tile to lift it, and hover near its edge to tilt that edge. A mouse wheel or two-finger scroll moves the grid the same way a drag does.</p>
+    <p>Every tile shares the same sphere, so the tiles join into one continuous shell: tiles at the centre stay nearly undistorted while those at the edges tilt away and lens hard. The bevel follows a Lamé curve with a flat plateau and a fast rounded shoulder, and per-channel dispersion splits light into colour along each rim.</p>
+    <p>The source is MIT licensed on GitHub at codyhxyz/infinite-liquid-glass. The effect design is inspired by Shader Development Studio.</p>
+  </canvas>
   <div id="overlay"></div>
   <div id="hud"></div>
   <div id="loading">0%</div>
